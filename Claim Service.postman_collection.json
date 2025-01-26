@@ -1,0 +1,160 @@
+{
+	"info": {
+		"_postman_id": "3d8fc551-934d-49dd-be42-a3cc5f114ae7",
+		"name": "Claim Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12302873"
+	},
+	"item": [
+		{
+			"name": "Initialize Claim",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "Content-Type should be JSON"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8081/claims/initialize/{{claimNumber}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"claims",
+						"initialize",
+						"{{claimNumber}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Review Claim",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "Content-Type should be JSON"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8081/claims/review/{{claimNumber}}/{{currentState}}/{{condition}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"claims",
+						"review",
+						"{{claimNumber}}",
+						"{{currentState}}",
+						"{{condition}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Approve Claim",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "Content-Type should be JSON"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8081/claims/approve/{{claimNumber}}/{{currentState}}/{{condition}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"claims",
+						"approve",
+						"{{claimNumber}}",
+						"{{currentState}}",
+						"{{condition}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reject Claim",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "Content-Type should be JSON"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8081/claims/reject/{{claimNumber}}/{{currentState}}/{{condition}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"claims",
+						"reject",
+						"{{claimNumber}}",
+						"{{currentState}}",
+						"{{condition}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Complete Claim",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "Content-Type should be JSON"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8081/claims/complete/{{claimNumber}}/{{currentState}}/{{condition}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8081",
+					"path": [
+						"claims",
+						"complete",
+						"{{claimNumber}}",
+						"{{currentState}}",
+						"{{condition}}"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"variable": [
+		{
+			"key": "claimNumber",
+			"value": "",
+			"type": "default"
+		}
+	]
+}

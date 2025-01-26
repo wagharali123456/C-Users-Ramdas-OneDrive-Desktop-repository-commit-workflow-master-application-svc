@@ -1,0 +1,66 @@
+{
+	"info": {
+		"_postman_id": "fce7dde5-0696-4d40-a4d0-736140b391fe",
+		"name": "Workflow Service",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12302873"
+	},
+	"item": [
+		{
+			"name": "Initialize Workflow",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "Content-Type should be JSON"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/workflow/init/{{workflowId}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"workflow",
+						"init",
+						"{{workflowId}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Translate Stage",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": "Content-Type should be JSON"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8080/workflow/translate/{{workflowId}}/{{currentState}}/{{condition}}",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"workflow",
+						"translate",
+						"{{workflowId}}",
+						"{{currentState}}",
+						"{{condition}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
