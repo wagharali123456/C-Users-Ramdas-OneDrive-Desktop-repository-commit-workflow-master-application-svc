@@ -1,0 +1,272 @@
+{
+	"info": {
+		"_postman_id": "f4684d2f-f7d2-4cd0-b9a3-51e56c3dedfe",
+		"name": "Workflow Management API",
+		"description": "This collection contains all the endpoints to manage workflows, stages, states, and transitions.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "12302873"
+	},
+	"item": [
+		{
+			"name": "Create Workflow",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"Order Workflow\",\"type\":\"ORDER\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/workflows/create",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"workflows",
+						"create"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Workflows",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/workflows",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"workflows"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Workflow by ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/workflows/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"workflows",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Stage to Workflow",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"stageName\":\"In Progress\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/workflows/1/add-stage",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"workflows",
+						"1",
+						"add-stage"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add State to Stage",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"stateName\":\"In Process\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/workflows/stages/1/add-state",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"workflows",
+						"stages",
+						"1",
+						"add-state"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Transition",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"fromStateId\":1,\"toStateId\":2,\"description\":\"Order Verification Complete\"}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/workflows/transitions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"workflows",
+						"transitions"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All Stages in a Workflow",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/workflows/1/stages",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"workflows",
+						"1",
+						"stages"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get All States in a Stage",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/workflows/stages/1/states",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"workflows",
+						"stages",
+						"1",
+						"states"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Transition Between States",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"fromStateId\":1,\"toStateId\":2}"
+				},
+				"url": {
+					"raw": "http://localhost:8080/workflows/transition",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"workflows",
+						"transition"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Check if Transition is Valid",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8080/workflows/transition/valid?fromStateId=1&toStateId=2",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"workflows",
+						"transition",
+						"valid"
+					],
+					"query": [
+						{
+							"key": "fromStateId",
+							"value": "1"
+						},
+						{
+							"key": "toStateId",
+							"value": "2"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
